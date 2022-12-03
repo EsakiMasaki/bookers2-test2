@@ -1,2 +1,11 @@
-<h1>Users#edit</h1>
-<p>Find me in app/views/users/edit.html.erb</p>
+<h2>User info</h2>
+<%= render "layouts/error", msg: @user %>
+<%= form_with model: @user, url: user_path(@user),method: :patch do |f| %>
+  <%= f.label :name %>
+  <%= f.text_field :name %>
+  <%= f.label :image %>
+  <%= f.file_field :profile_image, accept: "image/*" %>
+  <%= f.label :introduction %>
+  <%= f.text_area :introduction %>
+  <%= f.submit "Update User" %>
+<% end %>

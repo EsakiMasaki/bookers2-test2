@@ -13,7 +13,7 @@
 
   <body>
     <header>
-      
+
       <%= link_to "Bookers" , root_path %>
       <ul>
       <% if user_signed_in? %>
@@ -61,8 +61,19 @@
       <% end %>
       <%= flash[:notice] %>
       </ul>
-      
+
     </header>
-    <%= yield %>
+
+    <div class="container">
+      <%= yield %>
+    </div>
+
+    <footer>
+      <div class="container mt-5">
+        <div class="row">
+          <p class="mx-auto">CopyRight Infratop.inc</p>
+        </div>
+      </div>
+    </footer>
   </body>
 </html>

@@ -1,0 +1,14 @@
+<% if msg.errors.any? %>
+  <h3>
+    <% if msg.errors.count == 1 %>
+      <%= msg.errors.count %> error prohibited this obj from being saved:
+    <% else %>
+      <%= msg.errors.count %> errors prohibited this obj from being saved:
+    <% end %>
+  </h3>
+  <ul>
+    <% msg.errors.full_messages.each do |message| %>
+      <li><%= message %></li>
+    <% end %>
+  </ul>
+<% end %>

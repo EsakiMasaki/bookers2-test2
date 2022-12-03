@@ -1,2 +1,18 @@
-<h1>Books#show</h1>
-<p>Find me in app/views/books/show.html.erb</p>
+<%= render "layouts/info", user: @user,book: @book %>
+<h2>Book detail</h2>
+<table class="table">
+  <tr>
+    <td>
+      <%= link_to user_path(@book_id.user) do %>
+        <%= image_tag @book_id.user.get_profile_image(80,80) %><br>
+        <%= @book_id.user.name %>
+      <% end %>
+    </td>
+    <td><%= link_to @book_id.title,book_path(@book_id) %></td>
+    <td><%= @book_id.body %></td>
+    <% if @book_id.user == current_user %>
+      <td><%= link_to "Edit",edit_book_path(@book_id) %></td>
+      <td><%= link_to "Destroy", book_path(@book_id), method: :delete, "data-confirm" => "本当に消しますか？" %></td>
+    <% end %>
+  </tr>
+</table>
